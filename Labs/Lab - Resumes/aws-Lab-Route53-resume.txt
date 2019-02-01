@@ -1,0 +1,45 @@
+# Route 53
+
+* Servicio de Route 53
+
+	- Registramos un dominio
+
+* Entramos al servicio de EC2 en AWS
+
+	- Create 3 instances en regiones distintas
+
+* Servicio de Route 53
+
+	- Create record set
+
+		- Tipo: Simple Routing Policy
+
+			- Tipo: A
+			- TTL: 60s 
+			- Values: IPs de las instancias creadas
+
+		- Testeamos la resolución DNS
+
+	- Create un record set Latency Based Routing Policy
+
+			- Tipo: A
+			- TTL: 60s 
+			- Values: IPs de las instancias creadas
+
+			- Testeamos la resolución DNS (VPN)
+
+	- Creamos dos healthchecks para dos servidores
+	 
+	 		- Tipo: Endpoint
+	 		- IP: IP instancia
+	 		- Hostname: Hostname intancia
+	 		- Puerto: 80
+	 		- Path index.html
+
+	- Create un record set Failover Routing Policy
+
+			- Tipo: A
+			- TTL: 60s 
+			- Values: IPs de las instancias creadas
+
+			- Testeamos la resolución DNS (VPN)

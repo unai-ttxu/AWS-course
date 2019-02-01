@@ -1,0 +1,82 @@
+# Lab - Serverles Application
+
+* Región North Virginia
+
+* Servicio Amazon Polly
+
+	- Comentamos el servicio
+
+* Servicio DynamoDB - Creamos una tabla
+
+	- Name: posts
+	- Primary key: id
+
+* Servicio S3 - Creamos dos Buckets
+
+	- devacademy-polly-web
+	- devacademy-polly-mp3s
+	- Los hacemos públicos
+
+* Servicio SNS - Creamos un topic
+
+	- Name: new_posts
+
+* Servicio IAM - Creamos roles para las Lambdas
+
+	- Tipo: AWS Lambda
+	- Policy: Propia desde lambdapolicy.json
+
+* Servicio Lambda - Creamos 3 Lambdas
+	
+	- Name: PostReader_NewPosts
+	- Runtime: Python 2.7
+	- Role: El que hemos creado anteriormente
+	- Código: newposts.py (variables de entorno)
+	- Configure test event: sample-new.json (miramos en Dynamo para comprobar el test)
+
+	- Name: PostsReader_ConvertToAudio
+	- Runtime: Python 2.7
+	- Role: El que hemos creado anteriormente
+	- Trigger: SNS
+	- Código: convertoaudio.py
+	- Timeout: 5 min
+
+	- Name: PostsReader_GetPosts
+	- Runtime: Python 2.7
+	- Role: El que hemos creado anteriormente
+	- Código: getposts.py
+	- Configure test event: sample-get.json (miramos en Dynamo para comprobar el test)
+
+* Servicio API Gateway - Creamos los endpoints
+
+	- New API
+	- Name: PostReaderAPI
+
+	- Method: GET
+		- Integration type: Lambda
+		- Lambda function: PostsReader_GetPosts
+
+	- Method: POST
+		- Integration type: Lambda
+		- Lambda function: PostReader_NewPosts
+
+	- Method: GET (Method Request)
+		- URL Query String: postId
+
+	- Method: GET (Integration Request)
+		- Mapping Templates: When there are no templates defined (recommended), application/json, mappings.json
+
+	- Deploy API
+		- Stage: prod
+
+	- Invoke URL
+
+* Servicio S3 - Subimos ficheros
+	
+	- script.js (cambiar Invoke URL) 
+	- style.css
+	- index.html (abrimos URL después de subirlo)
+
+* Servicio DynamoDB - Borramos test
+
+* Testeamos el servicio que hemos creado

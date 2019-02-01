@@ -1,0 +1,54 @@
+# Lab - S3
+
+* Zona London
+
+* Servicio de S3
+
+	- Region global
+
+	- Create Bucket
+
+		- Name: único
+		- Region: London
+		- Tag: FirstBucket
+		- Acceso público
+
+	- Upload file
+
+		- Comprobar subida
+		- Archivo privado
+		- URL
+
+	- Hacemos público el archivo
+
+		- Da error 
+		- Hacemos público el Bucket
+		- Hacemos público el archivo
+		- URL
+
+	- Creamos otro Bucket
+
+		- Versionado
+		- Público
+		- Enable Versioning
+
+	- Upload file
+	
+		- First version
+		- Second version
+		- Show versions
+		- URL
+		- Delete second version
+		- Delete first version
+
+	- Creamos otro Bucket
+
+		- Web estática
+		- Público
+		- Use this bucket to host a website: index.html, error.html
+		- Endpoint
+		- Permissions, Bucket Policy: bucketpolicypermissions.json
+		
+	- Upload web files
+		- index.html, error.html
+		- Endpoint Web

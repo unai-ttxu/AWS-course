@@ -1,0 +1,17 @@
+# SNS
+
+* Servicio de SNS en AWS
+
+	- Create new topic
+
+	- Create new subscription
+
+		- Tipo: Email
+
+	- Confirmamos subscripción desde nuestro correo
+
+	- Publicamos en el topic
+
+	- Comprobamos mail
+
+	- Comentamos topics

@@ -1,0 +1,25 @@
+# SQS
+
+* Servicio SQS de AWS
+
+	- Create new Queue
+
+		- Tipo: Estándar
+		- Configure Queue 
+
+	- Permission: GetQueueURL
+
+	- Mandamos un mensaje a la cola
+
+	- Vemos los mensajes de la cola
+
+	- Borramos el mensaje que habíamos enviado
+
+	- Suscribimos la cola a un topic creado
+
+	- Mandamos un mensaje desde ese topic a la cola
+
+	- Vemos el mensaje del topic en la cola y lo borramos
+
+	- Borramos la cola que hemos creado
+

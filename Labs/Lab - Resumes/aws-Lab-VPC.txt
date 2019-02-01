@@ -1,0 +1,47 @@
+# VPC
+
+* Servicio de VPC
+
+	- Comentamos subnets
+	
+	- Comentamos route tables
+	
+	- Comentamos internet gateway
+	
+	- Comentamos sec groups
+
+	- Create new VPC
+
+		- CIDR: 10.0.0.0/16
+
+	- Comentamos route table para la nueva VPC
+	
+	- Comentamos Network ACLs para la nueva VPC
+	
+	- Comentamos sec group para la nueva VPC
+
+	- Create new subnet para la VPC creada
+
+		- CIDR: 10.0.1.0/24
+
+	- Comentamos por qué nos da 251 IPs para la subnet creada
+
+	- Create new subnet en otra AZ distinta
+
+		- CIDR: 10.0.2.0/24
+
+	- Create new internet gateway y la conectamos con la VPC creada
+
+	- Creamos new route table
+
+		- Route: 0.0.0.0/0 al internet gateway que hemos creado anteriormente
+
+	- Asociamos la subnet 10.0.1.0/24 a la tabla de ruta nueva creada para salir a internet
+
+	- Seleccionamos Modify auto-assign IP settings para habilitar la signación de IPs públicas por defecto para la subnet 10.0.1.0/24
+
+* Servicio de EC2
+
+	- Create new instancia en cada subnet creada
+
+	- Entramos a la instancia desplegada en la subnet pública

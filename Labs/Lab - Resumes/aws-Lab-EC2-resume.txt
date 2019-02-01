@@ -1,0 +1,54 @@
+# Lab - EC2
+
+* Zona London
+
+* Servicio de EC2
+
+	- Create instance
+
+		- AMI: Linux
+		- Type: t2.micro
+		- Protect against accidental termination
+		- Storage
+		- Add Tags
+		- Security Group: DMZ (22, 80, 443)
+		- Key ssh
+
+	- Nos conectamos a la instancia
+
+		- Server python: python -m SimpleHTTPServer 80
+
+	- Destruir la instancia
+
+		- Error
+		- Quitamos protección
+
+	- Comentamos Status Checks
+
+	- Comentamos Monitoring
+
+	- Paramos la instancia
+
+	- Creamos Snapshot del volumen
+
+	- Creamos copy encriptada en Paris
+
+* Zona Paris
+
+* Servicio de EC2
+
+	- Create AMI
+
+		- Desde la Snapshot encriptada
+
+	- Create instance
+
+		- Desde la AMI creada
+
+	- Borramos las instancias
+
+* Zona London
+
+	- Comentamos Reserved Instances
+
+	- Comentamos AWS Marketplace

@@ -1,0 +1,63 @@
+# Lab - Lambda
+
+* Zona N. Virginia
+
+* Servicio de Lambda
+
+	- Create function
+
+		- From scratch
+		- Código: Python 3.7
+		- Role: From template, Simple Microservice permissions
+
+	- Basic settings
+
+		- Description
+
+	- IDE
+
+		- Code: hellodevacademy.py
+
+	- Triggers
+
+		- API Gateway
+
+			- Role IAM
+			- Nombre
+			- Deployment stage
+			- Endpoint
+				- Error
+
+* Servicio de API gateway
+
+	- API creada
+
+		- Borramos ANY
+
+		- Creamos GET
+
+			- Lambda
+			- Enable Proxy
+			- Función Lambda creada
+
+		- Deploy
+
+			- Stage
+			- Descripción
+			- Invoke URL
+
+* Servicio de a S3
+
+	- Create Bucket
+
+		- Make public
+		- Upload index.html, error.html (añadimos Invoke URL antes)
+		- Static website hosting.
+
+* Abrimos el Endpoint de nuestra web
+	
+	- Hacemos Click y vemos nuestro nombre
+
+* Servicio de IAM
+
+	- Role creado para la función Lambda

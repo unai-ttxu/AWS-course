@@ -1,0 +1,15 @@
+# API Gateway
+
+* Servicio de API Gateway en AWS
+
+	- Create new API
+
+	 	- Example API
+
+	- Comentamos los Resources de la API creada
+
+	- Comentamos cómo testear la API creada (GET y POST)
+
+	- Desplegamos la API (test)
+
+	- Comentamos stages y entramos a Invoke URL

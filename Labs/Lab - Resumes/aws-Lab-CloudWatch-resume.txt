@@ -1,0 +1,37 @@
+# Cloudwatch
+
+* Servicio de IAM
+
+	- Create new rol
+
+		- Name: CloudWatchEC2Role
+		- Tipo: EC2 
+		- Permission: CloudWatchFullAccess
+
+* Servicio EC2
+
+	- Create new instancia en EC2
+
+		- Role: CloudWatchEC2Role
+		- Bootstrap: bootstrap.sh
+		- Security group: DMZ
+
+	- Entramos a la instancia
+
+		- Comprobamos que existe la carpeta aws-scripts-mon
+
+* Servicio Cloudwatch de AWS
+
+	- Comentamos Metrics en el menú de la izquierda
+
+		- Métricas por defecto EC2
+
+	- Generamos métricas: metrics.sh
+
+	- Después de 5 minutos podemos ver las nuevas métricas en la interfaz
+
+	- Comentamos las métricas custom de Linux System
+
+	- Configuramos un cron para generar métricas: metrics.sh
+
+	- Vemos las métricas que hemos generado en las custom metrics que hemos creado

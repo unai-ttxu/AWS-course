@@ -1,0 +1,34 @@
+# DynamoDB
+
+* Servicio de DynamoDB
+
+	- Create table
+
+		- Primary key: studentid (Number)
+		- Provisioned capacity: 1
+
+	- Comentamos Overview de la tabla
+
+	- Comentamos Reserved capacity
+
+	- Creamos un Item para la tabla
+
+		- studentid
+		- FirstName (append String)
+
+	- Creamos otro Item para la tabla
+
+		- studentid
+		- FirstName
+		- SencondName
+
+	- Ventajas NoSQL
+
+	- Filter
+
+	- Metrics
+
+		- Read capacity
+		- Write capacity
+
+	- Ventajas de escalado

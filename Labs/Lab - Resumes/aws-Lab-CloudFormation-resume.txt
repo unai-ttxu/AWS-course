@@ -1,0 +1,25 @@
+# CloudFormation
+
+* Región London
+
+* Servicio de CloudFormation
+
+	- Create new Stack
+
+		- Template: CloudFormationTemplate.yaml
+
+		- Config Azanzada: Rollback on failure
+
+	- Comentamos la info dentro del Stack que hemos creado
+
+* Servicio de EC2
+
+	- Entramos a la instancia creada
+
+* Servicio de S3
+
+	- Entramos al Bucket que ha creado CloudFormation para el template subido
+
+* Servicio de CloudFormation
+	
+	- Borramos el Stack que hemos creado

@@ -1,0 +1,28 @@
+# RDS
+
+* Servicio de RDS
+
+	- Create Data Base
+
+		- Tipo: MySQL
+
+* Servicio de EC2
+
+	- Create instance
+
+		- Script de bootstrap: bootstrap.sh
+		- Sec group: DMZ
+
+	- Entramos al server php
+
+	- En la instancia editamos connect.php, endpoint MySQL
+
+	- Entramos a PublicIP/connect.php
+
+		- Error de conexión, queda configurar el sec group de la Base de datos
+
+	- Sec group
+
+		- Accesso al puerto de MySQL
+
+	- Entramos a PublicIP/connect.php
