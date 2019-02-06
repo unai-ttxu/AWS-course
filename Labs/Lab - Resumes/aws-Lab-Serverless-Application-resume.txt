@@ -9,7 +9,7 @@
 * Servicio DynamoDB - Creamos una tabla
 
 	- Name: posts
-	- Primary key: id
+	- Primary key: id (String)
 
 * Servicio S3 - Creamos dos Buckets
 

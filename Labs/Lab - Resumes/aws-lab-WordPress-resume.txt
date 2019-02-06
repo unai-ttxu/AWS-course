@@ -1,0 +1,99 @@
+# Lab - Wordpress
+
+* Creamos los security groups
+	
+	- WebDMZ (ssh y http para todos)
+	- RDS (mysql para sg-WebDMZ)
+
+* Creamos la BBDD RDS
+
+	- Production - MySQL
+	- t2.micro
+	- Public accessibility - NO
+	- Disable enhanced monitoring
+
+* Creamos Buckets en S3
+	
+	- devacademywpdata
+
+* Creamos role en S3
+
+	- Para EC2
+	- S3 Admin permissions
+
+* Creamos instancias
+
+	- t2.micro
+	- role creado antes
+	- Script de bootstrap
+
+* Entramos en las instancias para configurarlas
+
+	- Arrancamos httpd
+	- Abrimos la IP pública en el navegador para testear que ha arrancado bien
+
+* Instalamos Wordpress
+	
+	- Usamos el endpoint de nuestra RDS
+	- Creamos wp-config.php como nos dice el proceso de instalación
+	- Editamos un post
+	- Añadimos imágenes al post
+	- Abrimos el post
+	- Comprobamos que la URL de las imágenes apuntan a nuestra instancia
+
+* Entramos de nuevo en la instancia
+	
+	- Vemos las imágenes en /var/www/html/wp-content/uploads
+	- Subimos los datos al bucket, aws s3 cp --recursive /var/www/html s3://devacademywpcodedata
+	- Comprobamos que se han copiado bien, aws s3 ls s3://devacademywpcodedata
+
+* Creamos un balanceador
+	
+	- Application Load Balancer
+	- Todas las Availability Zone
+	- WordpressWebDMZ sec group
+	- New target group
+	- /healthy.html healthcheck
+	- Con el balanceador creado, nos vamos a Target Groups y añadimos la instancia a nuestro target
+
+* Creamos record set para apuntar al balanceador
+	
+	- Alias al balanceador
+	- Abrimos nuestro dominio para comprobar que está bien el registro
+
+* Entramos de nuevo en la instancia para preparar la AMI
+
+	- Configuramos cron para descargar las imágenes en el bucket /etc/crontab, */1 * * * * root aws s3 sync --delete s3://devacademywpdata /var/www/html
+	- Subimos fichero a S3 y Comprobamos
+
+* Creamos una AMI desde la instancia que tenemos arrancada
+	
+* Entramos de nuevo en la instancia para preparar la AMI
+
+	- Configuramos cron para guardar las imágenes en el bucket /etc/crontab, */1 * * * * root aws s3 sync --delete /var/www/html s3://devacademywpcode
+	- Subimos una imagen desde la interfaz de WordPress y vemos que se sube a S3
+
+* Creamos un autoscaling group de instancias
+	
+	- Primero Creamos Launch config
+		- Usamos la AMI que hemos creado antes
+		- t2.micro
+		- IAM role creado antes
+		- sg-WebDMZ
+
+	- Luego creamos el Autoscaling group
+		- 3 instancias
+		- seleccionamos todas las subnets
+		- Receive traffic from one or more load balancers. Target Groups creado para nuestro balanceador
+		- Health Check Type - ELB
+		- Añadimos notificación a nuestro mail
+
+	- Esperamos hasta que se levanten las 3 instancias nuevas
+
+* Comprobamos que las nuevas instancias están en los targets del balanceador. Quitamos la inicial
+
+* Creamos un nuevo post desde nuestra instancia de gestión del WordPress
+
+* Entramos al WordPress y vemos que el post se ha creado
+
+* Destruimos dos instancias y vemos que se crean otras dos nuevas

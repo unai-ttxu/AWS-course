@@ -1,0 +1,10 @@
+# Lab - Wordpress CloudFormation
+
+* Creamos un Stack desde el Servicio de CloudFormation
+
+* Elegimos la plantilla de Wordpress
+	
+	- t2.micro
+	- Todas las subnets
+
+* Comentamos el stack mientras se va creando
