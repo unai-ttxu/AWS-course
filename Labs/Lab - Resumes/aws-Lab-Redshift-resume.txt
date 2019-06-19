@@ -2,14 +2,14 @@
 
 * Zona North Virginia
 
-* Service de IAM
+* Servicio de IAM
 
 	- Create role
 
 		- Redshift - Customizable
 		- Permissions
 			- AmazonS3ReadOnlyAccess
-		- Name (myRedshiftRole)
+		- Name myRedshiftRole
 		- Copiamos Role ARN
 
 * Servicio de Redshift
