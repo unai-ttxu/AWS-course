@@ -5,4 +5,4 @@ chkconfig httpd on
 service httpd start  
 echo "<?php phpinfo();?>" > /var/www/html/index.php
 cd /var/www/html  
-wget https://s3.eu-west-2.amazonaws.com/devacademyaws-pro/connect.php
+wget URL_S3_CONNECT_PHP

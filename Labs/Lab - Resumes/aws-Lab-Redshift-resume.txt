@@ -1,0 +1,40 @@
+# Lab - Redshift
+
+* Zona North Virginia
+
+* Service de IAM
+
+	- Create role
+
+		- Redshift - Customizable
+		- Permissions
+			- AmazonS3ReadOnlyAccess
+		- Name (myRedshiftRole)
+		- Copiamos Role ARN
+
+* Servicio de Redshift
+
+	- Create cluster
+		- dc2.large
+		- 2 nodes
+		- Database name dev
+		- Database user awsuser
+		- Role IAM myRedshiftRole
+
+* Servicio de AWS S3
+
+	- Create bucket
+	- Create folder
+	- Unzip LoadingDataSampleFiles.zip
+	- Upload LoadingDataSampleFiles content
+
+* Servicio de Redshift
+
+	- Create table (create-table.txt)
+
+	- Copy data from S3
+		- PART TABLE (copy-part-table.txt)
+
+	- Vaccum and analyze PART TABLE
+
+	- Clean PART TABLE
